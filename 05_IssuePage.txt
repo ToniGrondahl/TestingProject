@@ -1,0 +1,67 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+# TODO: Write Precondition and Postcondition, Tags 
+
+Pre Condition	Project created, Open browser, Log in 
+Post Condition	Close project, Log out, close browser
+Tags		Issue
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Issue creation field variables, Updated name of the issue
+
+IssuesUrl: https://gitlab.com/ToniGrondahl/testausprojekti/-/issues
+
+New_Issue = TestIssue
+Import issues	Import CSV, Import From Jira 
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test
+
+
+Create Issue 
+	Navigate To issues Page IssuesUrl
+	Click New Issue 
+	Input Issue Title New_Issue
+	Input Issue Description
+	Create issue
+
+Update the name of issue
+	Navigate To Issue Page IssuesUrl
+	Click Existing Issue
+	Edit Title And Description
+	Save Changes
+
+Create second issue with previous updated name
+	Navigate To Issue Page IssuesUrl    
+	Click New Issue
+	Input Issue Title With previous updated name New_Issue
+	Input Issue description 
+	Create Issue
+	
+Delete First Issue
+	Navigate to Issue Page IssuesUrl
+	Click First Issue
+	Click dropdown menu next to close issue 
+	Delete Issue
+
+	
+	Create issue,
+ 	Update name of issue, 
+	Create second issue with previous updated name
+    Delete first issue
