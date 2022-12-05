@@ -1,0 +1,86 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation e.g. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Documentation	
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	Open browser, Log in
+Post Condition	Log out, Close browser
+Tags		Project
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+ProjectCreationUrl = https://gitlab.com/projects/new 
+ProjectsPageUrl = https://gitlab.com/
+Project_Name = TestausProjekti
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test
+
+Creating Blank Project
+
+	Navigate To New Project Page ProjectCreationUrl
+	Click Create Blank Project
+	Insert  Project name  Project_Name
+	Create Project
+	Validate that message is showing Project 'Project_Name' was successfully created.
+
+	Navigate To New Project Page ProjectCreationUrl
+ 	Click Create from template 
+	Insert Project Name Project_Name
+	Create Project
+	Validate That Message Is Showing The project was successfully imported.
+	
+	Navigate To Project Page ProjectsPageUrl
+	Navigate to project settings
+	Navigate to general
+	Update name of template project
+	validate that message is showing Project 'Project_Name' was successfully updated.	
+
+	Navigate To Project Page ProjectsPageUrl
+	Navigate to project settings
+	Navigate to general
+	Expand Advanced
+	Delete Project 
+	Validate that message is showing Project 'User_Name / Project_Name' is in the process of being deleted.
+
+	
+Create blank project
+Navigate
+Insert  project name  Project_Name
+Create template project 
+Update name of template project
+Delete template project
+Valide that message is showing Project 'First project ' was successfully created.
+
+# Negative Test
+
+Creating a blank project with the previous same name
+
+	Navigate To Project Page ProjectCreationUrl
+	Click Create Blank Project
+	Insert Project Name  Project_Name
+	Create Project
+	Validate that the form contains the following errors:
+	Project namespace name has already been taken
+	Name has already been taken
+	Path has already been taken
+	
+
+
